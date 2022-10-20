@@ -27,8 +27,8 @@ public class UrlCheckController {
             connection.setRequestMethod("GET");
             connection.connect();
 
-            int responseCodeCategory = connection.getResponseCode();
-            if (responseCodeCategory == 200) {
+            int responseCodeCategory = connection.getResponseCode() / 100;
+            if (responseCodeCategory == 2) {
                 returnMessage = SITE_IS_UP + " || up and running | this is the response: " + responseCodeCategory;
 
             } else {
