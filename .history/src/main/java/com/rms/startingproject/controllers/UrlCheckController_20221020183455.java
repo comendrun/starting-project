@@ -14,7 +14,7 @@ public class UrlCheckController {
 
     private final String SITE_IS_UP = "Site is Up";
     private final String SITE_IS_DOWN = "Site is Down";
-    private final String INCORRECT_URL = "URL is incorrect, Please Provide a valid URL";
+    private final String INCORRECT_URL = "URL is incorrect";
 
     @GetMapping("/check")
     public String getUrlStatusMessage(@RequestParam String url) {
@@ -38,7 +38,7 @@ public class UrlCheckController {
         } catch (MalformedURLException e) {
             returnMessage = INCORRECT_URL;
         } catch (IOException e) {
-            returnMessage = SITE_IS_DOWN;
+            returnMessage = ;
         }
         return returnMessage;
     }

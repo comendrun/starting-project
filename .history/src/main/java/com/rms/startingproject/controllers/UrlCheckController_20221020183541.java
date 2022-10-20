@@ -38,7 +38,7 @@ public class UrlCheckController {
         } catch (MalformedURLException e) {
             returnMessage = INCORRECT_URL;
         } catch (IOException e) {
-            returnMessage = SITE_IS_DOWN;
+            returnMessage = SITE;
         }
         return returnMessage;
     }
