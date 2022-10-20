@@ -15,8 +15,6 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-		<docker.image.prefix>rmscontainer.azurecr.io</docker.image.prefix>
-		<jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
 	</properties>
 	<dependencies>
 		
@@ -56,16 +54,35 @@
 				</configuration>
 			</plugin>
 
-			
-
-			<!-- maven apache -->
+			<!-- Micsrosoft Azure -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
-			</plugin>     
-			<!-- maven apache -->
-
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>1.7.0</version>
+				<configuration>
+				 <schemaVersion>v2</schemaVersion>
+				 <resourceGroup>maven-plugin</resourceGroup>
+				 <appName>RMS-Personal</appName>
+				 <region>Germany West Central</region>
+				 <runtime>
+					 <os>linux</os>
+					 <javaVersion>jre8</javaVersion>
+					 <webContainer></webContainer>
+				 </runtime>
+				 <deployment>
+					 <resources>
+						 <resource>
+							 <directory>${project.basedir}/target</directory>
+							 <includes>
+								 <include>*.jar</include>
+							 </includes>
+						 </resource>
+					 </resources>
+				 </deployment>
+				 <pricingTier>F1</pricingTier>
+				</configuration>
+			</plugin>
+			<!-- Micsrosoft Azure -->
 		</plugins>
 	</build>
 

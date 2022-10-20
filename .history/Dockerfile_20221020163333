@@ -1,0 +1,2 @@
+# define base docker image
+FROM openjdk:12 
